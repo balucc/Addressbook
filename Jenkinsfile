@@ -1,14 +1,14 @@
 #!/usr/bin/env groovy
+pipeline{
 node{
      stage('Git checkout'){
      //invoking Git repository
     git 'https://github.com/balucc/Addressbook.git'
      }
     stage('compile'){
-      pipeline{
          triggers {
   pollSCM 'H/2 * * * *'
-         }}
+         }
         //compile Java code
     withMaven(maven:'Maven'){
     sh 'mvn compile'
@@ -51,3 +51,4 @@ node{
        sh 'mvn package'
    }
  }}
+}
