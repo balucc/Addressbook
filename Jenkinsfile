@@ -1,5 +1,5 @@
 #!/usr/bin/env groovy
-node{
+pipeline{
      stage('Git checkout'){
         triggers {pollSCM('*/2 * * * *')}
         //invoking Git repository
