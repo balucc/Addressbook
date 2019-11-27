@@ -7,8 +7,6 @@ pipeline{
  stages{
      stage('Git checkout'){
      //invoking Git repository
-     step{
     git 'https://github.com/balucc/Addressbook.git'
      }}
  }
-}
