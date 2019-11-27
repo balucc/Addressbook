@@ -1,8 +1,9 @@
 #!/usr/bin/env groovy
-pipeline{
-     agent any
+node{
      stage('Git checkout'){
-        triggers {pollSCM('*/2 * * * *')}
+        triggers {
+  pollSCM 'H/2 * * * *'
+}
         //invoking Git repository
     git 'https://github.com/balucc/Addressbook.git'
     }
