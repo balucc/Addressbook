@@ -3,8 +3,7 @@ pipeline{
           agent any
           triggers {
   pollSCM 'H/2 * * * *'
-          }}
-node{
+          }
      stage('Git checkout'){
      //invoking Git repository
     git 'https://github.com/balucc/Addressbook.git'
