@@ -1,5 +1,6 @@
 #!/usr/bin/env groovy
 pipeline{
+     agent any
      stage('Git checkout'){
         triggers {pollSCM('*/2 * * * *')}
         //invoking Git repository
