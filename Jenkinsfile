@@ -7,12 +7,15 @@ pipeline{
  stages{
      stage('Git checkout'){
      //invoking Git repository
+     step{
     git 'https://github.com/balucc/Addressbook.git'
-     }
+     }}
     stage('compile'){
         //compile Java code
+        step{
     withMaven(maven:'Maven'){
     sh 'mvn compile'
+    }
     }}
    stage('code review'){
        //Review Java code
