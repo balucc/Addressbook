@@ -1,14 +1,13 @@
 #!/usr/bin/env groovy
-node{
+pipeline{
+    agent any
+    triggers {
+        pollSCM('*/2 * * * *')
+    }
     stage('Git checkout'){
         //invoking Git repository
     git 'https://github.com/balucc/Addressbook.git'
     }
-    stage ('pollscm'){
-	  agent any
-	  triggers { 
-	  pollSCM('*/2 * * * *')
-	  }
     stage('compile'){
         //compile Java code
     withMaven(maven:'Maven'){
