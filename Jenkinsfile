@@ -1,5 +1,4 @@
 #!/usr/bin/env groovy
-pipeline{
 node{
      stage('Git checkout'){
      //invoking Git repository
@@ -51,4 +50,3 @@ node{
        sh 'mvn package'
    }
  }}
-}
