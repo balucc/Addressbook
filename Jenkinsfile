@@ -1,5 +1,5 @@
 #!/usr/bin/env groovy
-node{
+pipeline{
      stage('Git checkout'){
      //invoking Git repository
     git 'https://github.com/balucc/Addressbook.git'
