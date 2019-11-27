@@ -1,12 +1,12 @@
 #!/usr/bin/env groovy
 node{
      stage('Git checkout'){
-        triggers {
-  pollSCM 'H/2 * * * *'
-}
-        //invoking Git repository
+     //invoking Git repository
     git 'https://github.com/balucc/Addressbook.git'
     }
+triggers {
+  pollSCM 'H/2 * * * *'
+  }
     stage('compile'){
         //compile Java code
     withMaven(maven:'Maven'){
