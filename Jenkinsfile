@@ -1,5 +1,8 @@
 #!/usr/bin/env groovy
 node{
+    agent {
+  label 'mylabel'
+}
     stage('Git checkout'){
         //invoking Git repository
     git 'https://github.com/balucc/Addressbook.git'
