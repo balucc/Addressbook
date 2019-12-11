@@ -46,4 +46,11 @@ node{
        withMaven(maven:'Maven'){
        sh 'mvn package'
    }
- }}
+ }
+    stage('docker-image-build'){
+      //build docker image with addressbook.war file
+       sh 'cp /var/lib/jenkins/workspace/javaPackage/target/addressbook.war .'
+       sh 'sudo docker build . -t balucc/addressbook:BUILD_NUMBER'
+       sh 'sudo docker push balucc/addressbook:$BUILD_NUMBER'
+      }
+}
