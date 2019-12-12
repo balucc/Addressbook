@@ -12,6 +12,7 @@ pipeline{
 	  }
 	}
 	stage('Code Review'){
+         script{
 	  try{
            steps{
             withMaven(maven:'Maven'){
@@ -23,7 +24,7 @@ pipeline{
          stage('Publish PMD'){
          steps{
             pmd canComputeNew: false, defaultEncoding: '', healthy: '', pattern: 'target/pmd.xml', unHealthy: ''
-          } 
+          } }
         }
        }
      }
