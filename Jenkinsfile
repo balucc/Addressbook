@@ -2,14 +2,15 @@ pipeline{
 	agent any
 	stages{
 	 stage('Git checkout'){
-	 git 'https://github.com/balucc/Addressbook.git'
-	}
+           steps{
+	      git 'https://github.com/balucc/Addressbook.git'
+	}}
 	stage('compile'){
-	tool {
-	maven 'Maven'
-	}
+	   tool {
+            	maven 'Maven'
+	 }
 	steps{
-	sh 'mvn compile'
+	    sh 'mvn compile'
 	  }
 	}
 	stage('Code Review'){
