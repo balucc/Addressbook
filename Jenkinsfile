@@ -65,14 +65,11 @@ stage('packaging'){
   }
 stage('Docker Image Build'){
   steps{
-    script{
-     sh cp /var/lib/jenkins/workspace/javaPackage/target/addressbook.war .
-        sudo docker build . -t balucc/addressbook:$BUILD_NUMBER
-        sudo docker push balucc/addressbook:$BUILD_NUMBER
-    }
+    sh label: '', script: '''cp /var/lib/jenkins/workspace/javaPackage/target/addressbook.war .
+sudo docker build . -t balucc/addressbook:$BUILD_NUMBER
+sudo docker push balucc/addressbook:$BUILD_NUMBER
+'''
+     }
   }
  }
- }
 }
-
-
