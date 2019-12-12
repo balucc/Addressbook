@@ -19,14 +19,14 @@ pipeline{
              }
            }
          }
-      }
       finally{
          stage('Publish PMD'){
          steps{
             pmd canComputeNew: false, defaultEncoding: '', healthy: '', pattern: 'target/pmd.xml', unHealthy: ''
           } 
+        }
        }
-	 }
+     }
    }
-}
+ }
 
