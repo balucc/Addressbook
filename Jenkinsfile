@@ -1,7 +1,7 @@
 pipeline{
 	agent any
 	stages{
-	 stage('Git checkout')
+	 stage('Git checkout'){
 	 git 'https://github.com/balucc/Addressbook.git'
 	}
 	stage('compile'){
@@ -25,4 +25,4 @@ pipeline{
        }
 	}
    }
-}
+}}
