@@ -5,19 +5,17 @@ pipeline{
 	 steps{
 	 git 'https://github.com/balucc/Addressbook.git'
 	}}
-	stage('compile'){
-	   tool{
-	     maven 'Maven'
-	  }
-	   steps{
-	    sh 'mvn compile'
+	 steps{
+           withMaven(maven:'Maven'){
+             sh 'mvn compile'
 	  }}
 	stage('Code Review'){
-	tool{
-	   maven 'Maven'
-	   }
-	    try{
-	 sh 'mvn pmd:pmd'
+	  try{
+           steps{
+            withMaven(maven:'Maven'){
+             sh 'mvn pmd:pmd'
+             }}
+             }
       }
       finally{
        stage('Publish PMD'){
@@ -25,5 +23,4 @@ pipeline{
        }
 	}
    }
-}
 }
