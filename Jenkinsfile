@@ -10,8 +10,9 @@ stage('code review'){
         post{
            //publishing pmd report
            success {
+              stage('Publish PMD'){
            pmd canComputeNew: false, defaultEncoding: '', healthy: '', pattern: 'target/pmd.xml', unHealthy: ''
           }}}
        }
-   }
+   }}
 
