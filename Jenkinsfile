@@ -6,9 +6,11 @@ pipeline{
 	 git 'https://github.com/balucc/Addressbook.git'
 	  }
 	}
+ stage('compile'){
 	 steps{
            withMaven(maven:'Maven'){
              sh 'mvn compile'
+	    }
 	  }
 	}
 	stage('Code Review'){
