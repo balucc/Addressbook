@@ -8,7 +8,7 @@ pipeline{
 	}
  stage('compile'){
 	 steps{
-           withMaven(maven:'Maven'){
+           withMaven(maven:'myMaven'){
              sh 'mvn compile'
 	    }
 	  }
@@ -17,7 +17,7 @@ pipeline{
 steps{
 	script{
 	   try{
-            withMaven(maven:'Maven'){
+            withMaven(maven:'myMaven'){
              sh 'mvn pmd:pmd'
              }
            }
@@ -32,7 +32,7 @@ stage('Code Testing'){
     steps{
         script{
            try{
-             withMaven(maven:'Maven'){
+             withMaven(maven:'myMaven'){
               sh 'mvn test'
              }
            }
@@ -46,7 +46,7 @@ stage('coverage check'){
     steps{
       script{
         try{
-          withMaven(maven:'Maven'){
+          withMaven(maven:'myMaven'){
              sh 'mvn cobertura:cobertura -Dcobertura.report.format=xml'
           }
          }
@@ -58,7 +58,7 @@ stage('coverage check'){
    }
 stage('packaging'){
    steps{
-       withMaven(maven:'Maven'){
+       withMaven(maven:'myMaven'){
        sh 'mvn package'
     }
    }
