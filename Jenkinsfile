@@ -69,7 +69,6 @@ stage('Docker Image Build'){
 sudo docker build . -t balucc/addressbook:$BUILD_NUMBER
 sudo docker push balucc/addressbook:$BUILD_NUMBER
 '''
-	  #//done
      }
   }
  }
