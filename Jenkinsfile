@@ -2,7 +2,7 @@ pipeline{
     agent any
     stages{
         stage('git checkout'){
-            step{
+            steps{
                 git credentialsId: 'GitAccountCred', url: 'https://github.com/balucc/Addressbook.git'
             }
         }
